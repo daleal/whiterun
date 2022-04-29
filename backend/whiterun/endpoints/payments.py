@@ -11,7 +11,7 @@ from whiterun.models.payment import Payment as PaymentModel
 router = APIRouter()
 
 
-@router.post("/intent", response_model=payment_schemas.PaymentCreationResponse)
+@router.post("/intents", response_model=payment_schemas.PaymentCreationResponse)
 def create_payment_intent(
     payment: payment_schemas.PaymentCreation,
     db: Session = Depends(deps.get_db),
