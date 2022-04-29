@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "whiterun"
+version = "0.1.0"
+description = "Backend API for whiterun"
+authors = ["Daniel Leal <dlleal@uc.cl>"]
+maintainers = ["Daniel Leal <dlleal@uc.cl>"]
+readme = "README.md"
+packages = [
+    { include = "whiterun" },
+]
+exclude = [
+    ".flake8",
+    ".pylintrc",
+    "mypy.ini",
+    "Makefile",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.75.0"
+pydantic = "^1.9.0"
+uvicorn = "^0.17.6"
+SQLAlchemy = "^1.4.32"
+alembic = "^1.7.7"
+psycopg2-binary = "^2.9.3"
+fintoc = "^2.2.2"
+
+[tool.poetry.dev-dependencies]
+black = "^21.11b1"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+pylint = "^2.12.2"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+mypy = "^0.910"
