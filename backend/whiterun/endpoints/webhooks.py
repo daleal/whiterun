@@ -16,8 +16,8 @@ router = APIRouter()
 @router.post(
     "/payments/accepted",
     dependencies=[
-        # Depends(require_timestamp_validation),
-        # Depends(require_signature_validation),
+        Depends(require_timestamp_validation),
+        Depends(require_signature_validation),
     ],
 )
 def accept_payment_webhook(
