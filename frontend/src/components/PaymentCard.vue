@@ -8,13 +8,13 @@ const props = defineProps<{ payment: Payment }>();
 <template>
   <v-card class="mx-auto">
     <v-card-text>
-      <div class="mb-1">
+      <div>
         Payment for
       </div>
-      <p class="text-h3">
+      <p class="mt-2 text-h3">
         $ {{ formatMoney(props.payment.amount) }}
       </p>
-      <p class="mt-1">
+      <p class="mt-1 text-h6">
         {{ formatDateTime(props.payment.updatedAt) }}
       </p>
     </v-card-text>
