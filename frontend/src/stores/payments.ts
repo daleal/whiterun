@@ -21,6 +21,9 @@ export const usePaymentsStore = defineStore('payments', {
       this.acceptedPayments = payments;
       this.loading = false;
     },
+    async createPaymentIntent(amount: number) {
+      return api.payments.create(amount);
+    },
   },
 });
 

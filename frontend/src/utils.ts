@@ -11,3 +11,7 @@ export const cleanNumber = (possibleNumber: string) => {
 
   return possibleNumber.replace(/[^0-9]/g, '');
 };
+
+export const isValidNumber = (possibleNumber: string) => (
+  possibleNumber === cleanNumber(possibleNumber)
+);
