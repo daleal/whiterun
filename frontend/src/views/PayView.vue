@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePaymentsStore } from '@/stores/payments';
 import { useFintocWidget } from '@/composables/fintocWidget';
 import { cleanNumber, isValidNumber } from '@/utils';
+import QrCode from '@/components/QrCode.vue';
 
 const paymentsStore = usePaymentsStore();
 const route = useRoute();
 
 const paying = ref(false);
 const amount = ref('');
+
+const url = computed(() => `${window.location.origin}/pay/${amount.value}`);
 
 const input = (event: Event) => {
   amount.value = cleanNumber((event.target as HTMLInputElement)?.value);
@@ -48,7 +51,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-container class="h-100 d-flex flex-column justify-end">
+  <v-container class="h-100 d-flex flex-column justify-space-around">
+    <QrCode
+      :url="url"
+      class="w-100"
+    />
     <v-form class="mb-3">
       <v-text-field
         v-model="amount"
